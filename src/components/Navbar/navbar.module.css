@@ -1,0 +1,88 @@
+.logoImg{
+    width: 100px;
+}
+.backgroundNav{
+    background: var(--color-grey-primary);
+    min-height: 140px;
+    /* padding-bottom: 20px !important; */
+    z-index: 100;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.21);
+}
+.backgroundTrans{
+    background: transparent !important;
+    background-color: transparent;
+    /* background-color: red; */
+    color: white !important;
+}
+.nav_side_section{
+    position: relative;
+}
+/* login box -- start */
+.auth_container_box{
+    width: 320px;
+    /* height: 100px; */
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    border: 1px solid grey;
+    
+    background-color: var(--color-grey-primary);
+}
+.login_btn{
+    background-color: var(--color-blue-primary);
+    color: white;
+    transition: all 0.3s;  
+    border: none;
+    font-size: 12px;
+    padding: 10px 0px !important;
+    width: 100%;
+}
+.login_btn:hover{
+    background-color: var(--color-hover-blue-primary);
+}
+.create_account_btn{
+    background-color: var(--color-grey-primary);
+    border: 1px solid white;
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 10px 0 !important;
+    width: 100%;
+    transition: all 0.3s;
+}
+.create_account_btn:hover{
+    background-color: white;
+    color: var(--color-grey-primary);
+}
+.auth_container_box span{
+    font-size: 12px;
+    font-weight: 300;
+    color: white !important;
+}
+
+.auth_container_box span::before {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+    text-decoration: line-through;
+    font-size: 10px;
+    margin-right: 10px;
+}
+.auth_container_box span::after {
+    content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+    text-decoration: line-through;
+    font-size: 10px;
+    margin-left: 10px;
+}
+/* when login css */
+.auth_container img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.auth_container a{
+    color: white;
+    font-size: 12px;
+}
+/* login box -- end */
+
+
+

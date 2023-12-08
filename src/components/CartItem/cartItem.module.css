@@ -1,0 +1,43 @@
+.container{
+    
+}
+
+.product_img_container{
+    width: 100%;
+    height: 100%;
+}
+.product_img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.title{
+    font-size: 14px;
+    font-weight: 500;
+}
+.price{
+    font-weight: bold;
+}
+.bin_icon{
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 1399.98px) { }
+
+@media (max-width: 1199.98px) { }
+
+@media (max-width: 991.98px) {  }
+
+@media (max-width: 767.98px) { 
+    .title{
+        font-size: 12px;
+    }
+    .price{
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 575.98px) { }

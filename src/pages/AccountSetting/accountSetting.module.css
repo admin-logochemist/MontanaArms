@@ -1,0 +1,38 @@
+.container{
+    background-color: var(--color-grey-primary);
+    font-family: var(--font-primary);
+}
+.avatar_img{
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+.form_container label{
+    color: white;
+     display: block;
+     font-weight: 300;
+     font-size: 14px;
+     margin-top: 40px;
+}
+.form_container input{
+    width: 100%;
+    height: 35px;
+    padding: 10px 4px;
+    font-size: 14px;
+}
+.double_input_container{
+
+}
+.save_btn{
+    width: 100%;
+    background-color: var(--color-blue-primary);
+    color: white;
+    font-size: 12px;
+    padding: 9px 0px;
+    border: none;
+    transition: all 0.3s;
+    margin-top: 60px;
+}
+.save_btn:hover{
+    background-color: var(--color-hover-blue-primary);
+}

@@ -1,0 +1,177 @@
+.main_payment_section {
+    padding: 50px 0px 50px 0px;
+}
+
+.payment_heading {
+    padding: 5px 0px;
+    margin: 5px 0px;
+}
+
+.payment_heading h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0px;
+}
+
+.payment_section_cards {
+    display: flex;
+    margin: 0px 0px 0px 0px;
+}
+
+.payment_section_images {
+    padding: 30px 0px 30px 0px;
+    margin: 5px 60px 5px 0px;
+    position: relative;
+}
+
+.venmo_image {
+    width: 166px;
+    height: 84px;
+    padding: 10px 0px 10px 0px;
+}
+
+.venmo_image img {
+    width: 100%;
+}
+
+.radio_btn {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+/* Hide the default radio input */
+.toothRadio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Change the radio color when checked */
+  .toothRadio:checked {
+    border-color: #ffffff; /* Change this to your desired color */
+  }
+  
+  /* Add a dot in the center when radio is checked */
+  .toothRadio:checked::before {
+    content: "";
+    display: block;
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(10%,10%);
+  }
+
+.line_vertical {
+    background-color: #E4E7E9;
+    width: 1px;
+    height: 145px;
+    position: absolute;
+    top: 0px;
+    left: 197px;
+}
+
+
+.input_sections {
+    padding: 50px 0px 0px 0px;
+}
+
+.card_entry_number {
+    padding: 10px 0px 0px 0px;
+}
+
+.input_heading h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.input_card_number form input {
+    width: 100%;
+    padding: 5px 0px;
+}
+.expiry_date{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_expiry_form{
+    padding: 10px 0px 0px 0px;
+}
+
+.expiry_heading h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.expiry_date_input_form{
+    width: 350px;
+}
+.expiry_date_input_form form input{
+    width: 100%;
+    padding: 5px 0px;
+}
+
+
+@media (max-width: 1399.98px) {
+    .payment_section_cards {
+        flex-wrap: wrap;
+    }
+ }
+@media (max-width: 1199.98px) {
+    .expiry_date_input_form {
+        width: 250px;
+    }
+    .payment_section_cards {
+        justify-content: center;
+    }
+    .payment_section_images {
+        margin: 5px 20px 5px 20px;
+    }
+    .line_vertical {
+        background-color: transparent;
+       
+    }
+
+
+ }
+@media (max-width: 991.98px) { 
+    .payment_section_cards {
+        justify-content: center;
+    }
+    .payment_section_images {
+        margin: 5px 20px 5px 20px;
+    }
+    .line_vertical {
+        background-color: transparent;
+       
+    }
+
+
+}
+@media (max-width: 767.98px) { 
+
+}
+@media (max-width: 575.98px) { 
+    .expiry_date_input_form{
+        width: 100%;
+    }
+}
+	

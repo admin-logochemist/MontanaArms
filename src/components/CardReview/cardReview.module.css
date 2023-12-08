@@ -1,0 +1,24 @@
+.container{
+     color: white;
+     font-family: var(--font-primary);
+}
+.container .message{
+    color: white;
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 30px;
+}
+.container .profileImg{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.client_rev{
+    color: white;
+    font-size: 13px;
+    font-weight: 200;
+
+}
+.sliderDots{
+    width: 50px;
+}

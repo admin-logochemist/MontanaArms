@@ -1,0 +1,22 @@
+.slideInnerContainer{
+    width: 220px;
+    height: 220px;
+}
+.img_container{
+    /* width: 200px;
+    height: 200px; */
+    overflow: hidden;
+}
+.img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.img_container img:hover{
+    transform: scale(1.1);
+}
+.slideContainer p{
+    z-index: 11;
+}

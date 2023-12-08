@@ -1,0 +1,66 @@
+.main_fluid_pay {
+    background-color: var(--color-grey-primary);
+    border-top: 1px solid rgba(255, 255, 255, 0.21);
+}
+
+
+
+
+
+/* @media (max-width: 1399.98px) {
+    .payment_section_cards {
+        flex-wrap: wrap;
+    }
+ }
+@media (max-width: 1199.98px) {
+    .expiry_date_input_form {
+        width: 250px;
+    }
+    .payment_section_cards {
+        justify-content: center;
+    }
+    .payment_section_images {
+        margin: 5px 20px 5px 20px;
+    }
+    .line_vertical {
+        background-color: transparent;
+       
+    }
+
+
+
+    .payment_card_section {
+        display: flex;
+        padding: 50px 0px 0px 0px;
+    }
+
+ }
+@media (max-width: 991.98px) { 
+    .payment_section_cards {
+        justify-content: center;
+    }
+    .payment_section_images {
+        margin: 5px 20px 5px 20px;
+    }
+    .line_vertical {
+        background-color: transparent;
+       
+    }
+
+
+
+    .payment_card_section {
+        display: flex;
+        padding: 50px 0px 0px 0px;
+    }
+
+}
+@media (max-width: 767.98px) { 
+
+}
+@media (max-width: 575.98px) { 
+    .expiry_date_input_form{
+        width: 100%;
+    }
+}
+	 */

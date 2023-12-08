@@ -1,0 +1,26 @@
+.row_container{
+    background-color: var(--color-grey-secondary);
+}
+.img_container{
+    background-image: url('../../assets/images/vidImage.png');
+    background-size: cover;
+    background-position: center;
+    background-color: red !important;
+    background-repeat: no-repeat;
+}
+
+
+
+@media (max-width: 1399.98px) { }
+
+@media (max-width: 1199.98px) { }
+
+@media (max-width: 991.98px) { 
+    .img_container{
+        display: block;
+    }
+ }
+
+@media (max-width: 767.98px) { }
+
+@media (max-width: 575.98px) { }

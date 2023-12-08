@@ -1,0 +1,12 @@
+html{
+    background-color: var(--color-grey-primary);
+}
+.container_main{
+    min-height: 100vh;
+    background-color: var(--color-grey-primary);
+}
+.container{
+    background-color: var(--color-grey-primary);
+    min-height: 100vh;
+    position: relative;
+}
