@@ -11,75 +11,21 @@ const cartSlice = createSlice({
       //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
       //   price: 1644.49
       // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
-      // {
-      //   id: 1,
-      //   image: gunImg,
-      //   title: 'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',
-      //   price: 1644.49
-      // },
     ],
-    show: false
+    show: false,
+    price: 0
   },
   reducers: {
     addToCart: (state, action) => {
       state.items.push(action.payload); // Assuming payload is an item to add
+      state.price += +action.payload.MSRP;
     },
     removeFromCart: (state, action) => {
-      state.items = state.items.filter(item => item.id !== action.payload); // Assuming payload contains an item ID or identifier
+      const removedItem = state.items.find(item => item.UPC === action.payload);
+      if (removedItem) {
+        state.items = state.items.filter(item => item.UPC !== action.payload);
+        state.price -= +removedItem.MSRP;
+      }
     },
     openCart: (state) =>{
       state.show = true;

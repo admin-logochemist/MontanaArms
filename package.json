@@ -1,8 +1,10 @@
 {
+  
   "name": "montana-arms",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy":"https://test.rsrgroup.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,6 +18,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",

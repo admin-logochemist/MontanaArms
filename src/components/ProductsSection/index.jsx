@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./productsSection.module.css";
 import searchIcon from "../../assets/images/MagnifyingGlass.png";
 import FeaturedProductCard from "../FeaturedProductCard";
@@ -13,6 +13,8 @@ import Stack from "@mui/material/Stack";
 // --
 
 import { RxHamburgerMenu } from "react-icons/rx";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 // ---------------
 // const gunsProductData = [
 //   {
@@ -89,8 +91,74 @@ import { RxHamburgerMenu } from "react-icons/rx";
 //   },
 // ];
 
+const ProductSection = ({ id, toggleSideBar, setToggleSideBar, gunsProductData }) => {
+  const [items, setItems] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 24;
+  const [loader, setLoader] = useState(true);
+  // for filter on search 
+  const [userInput, setUserInput] = useState('');
+  const [filteredArray, setFilteredArray] = useState([]);
 
-const ProductSection = ({ toggleSideBar, setToggleSideBar, gunsProductData }) => {
+  const payload = {
+    Username: 99901,
+    Password: "webuser1",
+    POS: "I",
+    Departments: id
+    // Limit: itemsPerPage,
+    // Offset: (currentPage - 1) * itemsPerPage
+  };
+
+  useEffect(() => {
+    getData()
+  }, [id]);
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  
+  async function getData() {
+    setLoader(true);
+    try {
+      const apiUrl = '/api/rsrbridge/1.0/pos/get-items';
+
+      const response = await axios.post(apiUrl, payload, {
+        headers: { 'Content-Type': 'application/json' },
+      });
+      setItems(response.data.Items);
+
+
+      const calculatedTotalPages = Math.ceil(response.data.RowCount / itemsPerPage);
+      // set Total Pages
+      setTotalPages(calculatedTotalPages);
+      
+
+      // console.log("URL:", response.config.url);
+      console.log("response", response);
+      setLoader(false)
+    } catch (error) {
+      console.error("error", error);
+      setLoader(false);
+    }
+  }
+// Assuming you want to display only a portion of the data based on the current page
+const startIndex = (currentPage - 1) * itemsPerPage;
+const endIndex = startIndex + itemsPerPage;
+const displayedData = items.slice(startIndex, endIndex);
+
+ // filter function
+//  const handleInputChange = (event) => {
+//   const input = event.target.value;
+//   setUserInput(input);
+
+//   const filteredResults = items.filter(obj =>
+//     obj.Title.toLowerCase().includes(input.toLowerCase())
+//   );
+
+//   setItems(filteredResults);
+// };
   return (
     <>
       <RxHamburgerMenu
@@ -107,6 +175,8 @@ const ProductSection = ({ toggleSideBar, setToggleSideBar, gunsProductData }) =>
               name=""
               id=""
               placeholder="Search for anything..."
+              // value={userInput}
+              // onChange={handleInputChange}
             />
             <img src={searchIcon} alt="" />
           </div>
@@ -129,35 +199,49 @@ const ProductSection = ({ toggleSideBar, setToggleSideBar, gunsProductData }) =>
             <span>65,867 Result found.</span>
           </div>
         </div>
-
-        <div className="d-flex flex-wrap justify-content-center justify-content-sm-between mt-5">
-          {gunsProductData.map((item, key) => (
-            <div className={`${styles.img_container}`}>
-              <FeaturedProductCard data={item} key={key} />
+        {
+          loader ?
+            <div className="text-center mt-5">
+              <div className="spinner-border text-light" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
             </div>
-          ))}
-        </div>
+            :
+            <div className="d-flex flex-wrap justify-content-center justify-content-sm-between mt-5">
+              {displayedData && displayedData.map((item, key) => (
+                <div key={key} className={`${styles.img_container}`}>
+                  <FeaturedProductCard data={item} key={key} />
+                </div>
+              ))}
+            </div>
+        }
 
-        <div className="d-flex justify-content-center my-4">
-          <Stack spacing={2}>
-            <Pagination
-              count={6}
-              color="primary"
-              sx={{
-                "& .MuiPaginationItem-root": {
-                  backgroundColor: "white", // Change the background color for non-active pages
-                  "&:hover": {
-                    backgroundColor: "gray", // Change the background color for non-active pages on hover
+
+        {loader ? " " :
+          <div className="d-flex justify-content-center my-4">
+            <Stack spacing={2}>
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                color="primary"
+                onChange={handlePageChange}
+
+                sx={{
+                  "& .MuiPaginationItem-root": {
+                    backgroundColor: "white",
+                    "&:hover": {
+                      backgroundColor: "gray",
+                    },
                   },
-                },
-                "& .Mui-selected": {
-                  backgroundColor: "#3361E1", // Change the background color for the active page
-                  color: "white", // Change the text color for the active page
-                },
-              }}
-            />
-          </Stack>
-        </div>
+                  "& .Mui-selected": {
+                    backgroundColor: "#3361E1",
+                    color: "white",
+                  },
+                }}
+              />
+            </Stack>
+          </div>
+        }
       </div>
     </>
   );

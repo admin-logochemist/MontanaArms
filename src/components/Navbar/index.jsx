@@ -22,6 +22,8 @@ const Navbar = ({ BG }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItemLength = useSelector(state=> state.cart.items.length)
+  const categories = useSelector(state=> state.item.filteredItem)
+  console.log("categories",categories)
   return (
     <>
       {/* <SideBarCart toggleSideCart={toggleSideCart} setToggleSideCart={setToggleSideCart} /> */}
@@ -51,6 +53,7 @@ const Navbar = ({ BG }) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
               <li className="nav-item">
                 <NavLink
                   to="/"
@@ -67,7 +70,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/5,1,6,12,22,7"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -79,7 +82,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/18"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -91,7 +94,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/41,32,34,42"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -103,7 +106,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/35,14,33,10,11,19,20,21,39,36,40,30,13,38,4,27"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -113,9 +116,9 @@ const Navbar = ({ BG }) => {
                   Accessories
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
-                  to="/products/1"
+                  to="/products/4"
                   // className="nav-link"
                   className={({ isActive }) =>
                     isActive
@@ -124,12 +127,12 @@ const Navbar = ({ BG }) => {
                   }
                   aria-current="page"
                 >
-                  Duty Gears
+                  Tasers
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/8,9"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -141,7 +144,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/25,26"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -153,7 +156,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/23"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -165,7 +168,7 @@ const Navbar = ({ BG }) => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to={"/products/1"}
+                  to={"/products/15"}
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.nav_item_active} nav-link`
@@ -175,6 +178,21 @@ const Navbar = ({ BG }) => {
                   Reloading
                 </NavLink>
               </li>
+              
+              {/* {categories.map((item,key)=>(
+                 <li className="nav-item">
+                 <NavLink
+                   to={`/products/${item.CategoryId}`}
+                   className={({ isActive }) =>
+                     isActive
+                       ? `${styles.nav_item_active} nav-link`
+                       : `${styles.nav_item} nav-link`
+                   }
+                 >
+                   {item.CategoryName}
+                 </NavLink>
+               </li>
+              ))} */}
             </ul>
 
             {/* left-end */}

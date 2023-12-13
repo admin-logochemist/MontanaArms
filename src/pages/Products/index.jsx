@@ -17,7 +17,7 @@ import axios from "axios";
 
 
 const Product = () => {
-  const [gunsProductData,setGunsProductData] = useState([
+  const [gunsProductData, setGunsProductData] = useState([
     {
       id: 1,
       image: gun1,
@@ -165,27 +165,17 @@ const Product = () => {
   ]);
 
   const { id } = useParams();
+  console.log("id-->", id)
+  console.log(typeof(id))
   const [toggleSideBar, setToggleSideBar] = useState(false);
-  
-  const payload = {
-    "Username": 99901,
-    "Password": "webuser1",
-    "POS": "I",
-    "Limit": 5
-  };
-  
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.post("https://test.rsrgroup.com/api/rsrbridge/1.0/pos/get-items", payload, {
-          headers: { 'Content-Type': 'application/json' }
-        });
-        console.log(response.data); 
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, []);
+
+  // await fetch(apiUrl, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: payload
+  // }).then((response) => {
+  //   console.log(response)
+  // }).catch((error) => { console.log("error:", error) })
 
   return (
     <>
@@ -193,7 +183,7 @@ const Product = () => {
       <div className={`${styles.container_main} container-fluid`}>
         <div className={`container ${styles.container}`}>
           <SideBarFilter toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} gunsProductData={gunsProductData} setGunsProductData={setGunsProductData} />
-          <ProductSection toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar}  gunsProductData={gunsProductData} setGunsProductData={setGunsProductData}/>
+          <ProductSection id={id} toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} gunsProductData={gunsProductData} setGunsProductData={setGunsProductData} />
         </div>
       </div>
     </>

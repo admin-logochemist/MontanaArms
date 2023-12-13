@@ -11,6 +11,7 @@ const SideBarCart = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.cart.items);
   const toggleSideCart = useSelector((state)=> state.cart.show);
+  const subTotal = useSelector(state=> state.cart.price)
   const navigate = useNavigate();
   console.log(data);
   return (
@@ -50,7 +51,7 @@ const SideBarCart = () => {
             >
                 <div className="d-flex justify-content-between pb-0 mb-0">
                   <p>SUBTOTAL</p>
-                  <p className={`${styles.total_ammout}`}>$1,644.49</p>
+                  <p className={`${styles.total_ammout}`}>$ {subTotal}</p>
                 </div>
                 <span className={`${styles.shipping_text}`}>Shipping, taxes & Discount codes calculated at checkout.</span>
                 <div className="mt-3">

@@ -11,15 +11,16 @@ import image10 from '../../assets/images/Plus.png';
 import image11 from '../../assets/images/ShoppingCart.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, openCart } from '../../redux/cartSlice';
 import gunImg from "../../assets/images/gun1.png"
-const FireArmsSecondCol = () => {
+const FireArmsSecondCol = ({itemAttributes, catalog}) => {
     const [productQty, setProductQty] = useState(0);
     // const [openForm , setOpenForm] = useState(false);
     const [isHeartHovered, setIsHeartHovered] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch()
+    const productData = useSelector(state=> state.item.item);
 
     const handleClickMinusQty = () => {
         if (productQty > 0) {
@@ -34,8 +35,8 @@ const FireArmsSecondCol = () => {
 
     }
     const addToTheCart = ()=>{
-        dispatch(addToCart({id:20,image:gunImg,title:'LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56',price:"1644"}));
         dispatch(openCart());
+        dispatch(addToCart(productData));
     }
 
     return (
@@ -73,7 +74,8 @@ const FireArmsSecondCol = () => {
 
                 <div className={`${styles.lwrc_section}`}>
                     <div className={`${styles.lwrc_heading}`}>
-                        <h1>LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56</h1>
+                        {/* <h1>LWRC 16" BLACK DIRECT IMPINGEMENT RIFLE 5.56</h1> */}
+                        <h1>{catalog && catalog?.PartTitle}</h1>
 
                     </div>
 
@@ -81,7 +83,8 @@ const FireArmsSecondCol = () => {
 
                 <div className={`${styles.reviews_section}`}>
                     <div className={`${styles.review_heading}`}>
-                        <h1>$1,644.49</h1>
+                        {/* <h1>$1,644.49</h1> */}
+                        <h1>$ {catalog && catalog?.MSRP}</h1>
                     </div>
                     <div className={`${styles.start_rating}`}>
                         <img src={image8} alt="" />
@@ -96,17 +99,17 @@ const FireArmsSecondCol = () => {
 
                 <div className={`${styles.product_code_section}`}>
                     <div className={`${styles.product_code}`}>
-                        <h1>Product Code: <span>ICDIR5B16</span></h1>
+                        <h1>Product Code: <span>{catalog && catalog?.PartNum}</span></h1>
                     </div>
                     <div className={`${styles.product_code}`}>
-                        <h1>UPC: <span>00855193006786</span></h1>
+                        <h1>UPC: <span>{catalog && catalog?.UPC}</span></h1>
                     </div>
                     <div className={`${styles.product_code}`}>
-                        <h1>Brand: <span>LWRC</span></h1>
+                        <h1>Brand: <span>{catalog && catalog?.Manufacturer}</span></h1>
 
                     </div>
                     <div className={`${styles.product_availbility}`}>
-                        <h1>Availability: <span>In Stock</span></h1>
+                        <h1>Availability: <span style={{color: catalog.StatusMssg == "Item is out of stock"? 'red' : '#0F6'}}>{catalog && catalog?.StatusMssg}</span></h1>
                     </div>
 
                 </div>
