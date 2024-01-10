@@ -164,7 +164,7 @@ const Product = () => {
     },
   ]);
 
-  const { id } = useParams();
+  const { id, category } = useParams();
   console.log("id-->", id)
   console.log(typeof(id))
   const [toggleSideBar, setToggleSideBar] = useState(false);
@@ -183,7 +183,7 @@ const Product = () => {
       <div className={`${styles.container_main} container-fluid`}>
         <div className={`container ${styles.container}`}>
           <SideBarFilter toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} gunsProductData={gunsProductData} setGunsProductData={setGunsProductData} />
-          <ProductSection id={id} toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} gunsProductData={gunsProductData} setGunsProductData={setGunsProductData} />
+          <ProductSection category={category} id={id} toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} gunsProductData={gunsProductData} setGunsProductData={setGunsProductData} />
         </div>
       </div>
     </>

@@ -19,8 +19,8 @@ const CartItem = ({ item }) => {
         <div className="row py-3 ">
           <div className="col-4">
             <div className={`${styles.product_img_container} `} >
-              {/* <img className={`${styles.product_img} `} src={item.image} alt="" /> */}
-               <img className={`${styles.product_img} `} src={img} alt="" />
+              <img className={`${styles.product_img} `} src={item.image} alt="" />
+               {/* <img className={`${styles.product_img} `} src={img} alt="" /> */}
             </div>
           </div>
           <div className="col-6 pt-3 ">

@@ -91,7 +91,7 @@ import { useDispatch, useSelector } from "react-redux";
 //   },
 // ];
 
-const ProductSection = ({ id, toggleSideBar, setToggleSideBar, gunsProductData }) => {
+const ProductSection = ({ category ,id, toggleSideBar, setToggleSideBar, gunsProductData }) => {
   const [items, setItems] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1);
@@ -128,7 +128,6 @@ const ProductSection = ({ id, toggleSideBar, setToggleSideBar, gunsProductData }
         headers: { 'Content-Type': 'application/json' },
       });
       setItems(response.data.Items);
-
 
       const calculatedTotalPages = Math.ceil(response.data.RowCount / itemsPerPage);
       // set Total Pages
@@ -210,7 +209,7 @@ const displayedData = items.slice(startIndex, endIndex);
             <div className="d-flex flex-wrap justify-content-center justify-content-sm-between mt-5">
               {displayedData && displayedData.map((item, key) => (
                 <div key={key} className={`${styles.img_container}`}>
-                  <FeaturedProductCard data={item} key={key} />
+                  <FeaturedProductCard category={category} data={item} key={key} />
                 </div>
               ))}
             </div>
